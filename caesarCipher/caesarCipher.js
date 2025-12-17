@@ -32,11 +32,14 @@ const getShiftedCharCode = (key, code) => {
 const caesarCipher = (key, string) => {
   const stringArray = string.split("");
 
-  const shiftedStringArray = stringArray.map((char) => {
-    let code = char.charCodeAt(0);
+  let shiftedArray = [];
 
-    //const updatedCode = getCharCode(key, code)
+  shiftedArray = stringArray.map((char) => {
+    let shiftedCode = getShiftedCharCode(key, char.charCodeAt(0));
+    return String.fromCharCode(shiftedCode);
   });
+
+  return shiftedArray.join("");
 };
 
 export default caesarCipher;
